@@ -35,6 +35,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         bottom_navigation.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
+        replaceFragment(HomeFragment())
 
     }
     private fun replaceFragment(fragment: Fragment){

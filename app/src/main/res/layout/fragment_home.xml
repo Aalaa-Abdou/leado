@@ -13,109 +13,199 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/card_view"
-            android:layout_width="270dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
+            android:paddingHorizontal="10dp"
             app:cardCornerRadius="20dp"
-            android:paddingHorizontal="10dp">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginHorizontal="20dp">
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <TextView
                     android:id="@+id/journey_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:text="Yourself Journey 30%"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/rubik_medium"
                     android:textColor="#1f314a"
                     android:textSize="14sp"
-                    android:fontFamily="@font/rubik_medium"
-                    android:layout_marginTop="5dp"/>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Yourself Journey 30%" />
+
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    android:src="@drawable/ic_launcher_background"
-                    app:layout_constraintStart_toStartOf="parent"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginRight="20dp"
+                    android:src="@drawable/ic_launcher_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/journey_tv"
-                    android:layout_marginRight="20dp"/>
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/badge_image_1"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    app:layout_constraintTop_toBottomOf="@id/journey_tv"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     android:src="@drawable/ic_launcher_background"
-                    app:layout_constraintStart_toStartOf="@id/journey_tv"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/journey_tv"
+                    app:layout_constraintTop_toBottomOf="@id/journey_tv" />
+
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/badge_image_2"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    app:layout_constraintTop_toTopOf="@id/badge_image_1"
-                    app:layout_constraintBottom_toBottomOf="@id/badge_image_1"
+                    android:layout_marginLeft="5dp"
                     android:src="@drawable/ic_launcher_background"
+                    app:layout_constraintBottom_toBottomOf="@id/badge_image_1"
                     app:layout_constraintStart_toEndOf="@id/badge_image_1"
-                    android:layout_marginLeft="5dp"/>
+                    app:layout_constraintTop_toTopOf="@id/badge_image_1" />
+
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    app:layout_constraintTop_toTopOf="@id/badge_image_2"
-                    app:layout_constraintBottom_toBottomOf="@id/badge_image_2"
+                    android:layout_marginLeft="5dp"
                     android:src="@drawable/ic_launcher_background"
+                    app:layout_constraintBottom_toBottomOf="@id/badge_image_2"
                     app:layout_constraintStart_toEndOf="@id/badge_image_2"
-                    android:layout_marginLeft="5dp"/>
+                    app:layout_constraintTop_toTopOf="@id/badge_image_2" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="@id/badge_image_1"
-                    app:layout_constraintBottom_toBottomOf="@id/badge_image_1"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    tools:text="Rank:3rd"
+                    android:layout_marginRight="10dp"
                     android:fontFamily="@font/rubik_medium"
                     android:textColor="#1f314a"
                     android:textSize="14sp"
-                    android:layout_marginRight="10dp"
-                    />
+                    app:layout_constraintBottom_toBottomOf="@id/badge_image_1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/badge_image_1"
+                    tools:text="Rank:3rd" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/clouds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/clouds"
+            app:layout_constraintBottom_toTopOf="@+id/self_awareness_button"
+            app:layout_constraintEnd_toStartOf="@+id/self_awareness_IV"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/mountain_IV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/maountains"
+            app:layout_constraintBottom_toTopOf="@id/mind_icon_IV"
+            app:layout_constraintEnd_toEndOf="@+id/card_view"
+            app:layout_constraintStart_toStartOf="@+id/card_view"
+            app:layout_constraintTop_toBottomOf="@+id/card_view"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"/>
+
+        <ImageView
+            android:id="@+id/line3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/line_3"
+            app:layout_constraintBottom_toTopOf="@+id/mind_icon_IV"
+            app:layout_constraintEnd_toStartOf="@+id/mind_icon_IV"
+            app:layout_constraintStart_toStartOf="@+id/clouds"
+            app:layout_constraintTop_toTopOf="@+id/mind_icon_IV" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/line_2"
+            app:layout_constraintBottom_toTopOf="@+id/line3"
+            app:layout_constraintEnd_toEndOf="@+id/line3"
+            app:layout_constraintStart_toStartOf="@+id/line3"
+            android:layout_marginBottom="10dp"/>
+
+        <ImageView
+            android:id="@+id/mind_icon_IV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/mind_icon"
+            app:layout_constraintBottom_toTopOf="@+id/self_awareness_IV"
+            app:layout_constraintStart_toStartOf="@+id/mountain_IV"
+            app:layout_constraintTop_toBottomOf="@+id/mountain_IV"
+            android:layout_marginBottom="20dp"/>
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/lines"
+            app:layout_constraintBottom_toBottomOf="@+id/mind_mapping_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/mind_icon_IV"
+            app:layout_constraintTop_toTopOf="@+id/mind_icon_IV" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tree"
+            app:layout_constraintBottom_toTopOf="@+id/self_awareness_button"
+            app:layout_constraintEnd_toEndOf="@+id/self_awareness_button"
+            app:layout_constraintStart_toEndOf="@+id/self_awareness_button"
+            app:layout_constraintTop_toBottomOf="@+id/mind_mapping_button" />
+
+        <ImageView
+            android:id="@+id/self_awareness_IV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/self_awarness_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/clouds"
+            app:layout_constraintEnd_toEndOf="@+id/mind_mapping_button"
+            app:layout_constraintStart_toStartOf="@+id/self_awareness_button"
+            app:layout_constraintTop_toTopOf="@+id/clouds" />
+
         <Button
+            android:id="@+id/button"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/curved_button_background"
             android:fontFamily="@font/rubik"
+            android:minHeight="0dp"
+            android:paddingHorizontal="15dp"
             android:text="Personal-Branding"
             android:textAllCaps="false"
-            app:layout_constraintTop_toTopOf="@id/card_view"
-            app:layout_constraintBottom_toTopOf="@id/mind_mapping_button"
+            app:layout_constraintBottom_toTopOf="@+id/self_awareness_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/mind_mapping_button"
-            android:minHeight="0dp"
-            android:background="@drawable/curved_button_background"
-            android:paddingHorizontal="15dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/card_view"
+            android:layout_marginBottom="150dp"/>
 
         <Button
             android:id="@+id/mind_mapping_button"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/curved_button_background"
             android:fontFamily="@font/rubik"
+            android:minHeight="0dp"
+            android:paddingHorizontal="15dp"
             android:text="Mind-Mapping"
             android:textAllCaps="false"
-            app:layout_constraintTop_toBottomOf="@id/card_view"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/self_awareness_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:minHeight="0dp"
-            android:background="@drawable/curved_button_background"
-            android:paddingHorizontal="15dp"/>
+            app:layout_constraintTop_toBottomOf="@+id/button" />
 
         <Button
             android:id="@+id/self_awareness_button"
@@ -131,6 +221,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/mind_mapping_button"
-            app:layout_constraintTop_toBottomOf="@+id/mind_mapping_button" />
+            android:layout_marginBottom="15dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

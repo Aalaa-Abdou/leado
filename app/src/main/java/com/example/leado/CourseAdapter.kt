@@ -5,9 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.leado.models.Course
 import com.example.leado.models.Subject
-import kotlinx.android.synthetic.main.fragment_journey_home.view.*
 import kotlinx.android.synthetic.main.lesson_item.view.*
 
 class CourseAdapter(private val courseList: List<Subject>):

@@ -147,9 +147,10 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/course_name_recycler_TV"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/curved_button_background"
-            />
+            tools:listitem="@layout/lesson_item"/>
 
 
 

@@ -5,8 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.navigation.Navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment.findNavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.leado.models.Subject
 import kotlinx.android.synthetic.main.lesson_item.view.*
@@ -27,9 +26,9 @@ class CourseAdapter(private val courseList: List<Subject>):
 
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) {
         holder.subjectTitle.text = courseList[position].subjectName
-        holder.lessonNumber.text = courseList[position].lessonNumber.toString()
+        holder.lessonNumber.text = "Lesson ${courseList[position].lessonNumber.toString()}"
         holder.lessonDescription.text = courseList[position].lessonDescription
-
+        holder.startButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_journeyHomeFragment_to_searchFragment2))
     }
 
     override fun getItemCount(): Int {

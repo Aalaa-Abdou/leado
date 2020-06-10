@@ -8,7 +8,6 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.leado.HomeFragment"
-        android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_homeFragment_to_journeyHomeFragment"
@@ -17,21 +16,21 @@
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.example.leado.AccountFragment"
-        android:label="fragment_account"
         tools:layout="@layout/fragment_account" />
     <fragment
         android:id="@+id/libraryFragment"
         android:name="com.example.leado.LibraryFragment"
-        android:label="fragment_library"
         tools:layout="@layout/fragment_library" />
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.leado.SearchFragment"
-        android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/journeyHomeFragment"
         android:name="com.example.leado.JourneyHomeFragment"
-        android:label="fragment_journey_home"
-        tools:layout="@layout/fragment_journey_home" />
+        tools:layout="@layout/fragment_journey_home" >
+        <action
+            android:id="@+id/action_journeyHomeFragment_to_searchFragment2"
+            app:destination="@id/searchFragment" />
+    </fragment>
 </navigation>

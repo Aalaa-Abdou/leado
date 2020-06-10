@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdkVersion 29
@@ -45,4 +46,6 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.3.0-beta01"
     //recyclerview
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0-rc01"
+    //progress_bar
+    implementation 'com.github.carlosmuvi:SegmentedProgressBar:0.8.1'
 }

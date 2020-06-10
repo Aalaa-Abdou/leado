@@ -8,57 +8,40 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/duck_egg_blue">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolBar"
-            android:layout_width="match_parent"
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_img"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:src="@mipmap/ic_launcher"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"/>
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/back"
-                android:id="@+id/img_back"/>
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_img"
+            android:text="Emily petersz"
+            />
 
-        </androidx.appcompat.widget.Toolbar>
-
-
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_img"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:src="@mipmap/ic_launcher"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/toolBar" />
-
-            <TextView
-                android:id="@+id/txtName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_img"
-                android:text="Emily petersz"
-                />
-
-            <TextView
-                android:id="@+id/txtJob"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtName"
-                android:text="Student" />
+        <TextView
+            android:id="@+id/txtJob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtName"
+            android:text="Student" />
 
         <TextView
             android:textStyle="bold"
@@ -95,17 +78,17 @@
             app:layout_constraintEnd_toEndOf="@id/txtRankNumber"
             app:layout_constraintTop_toTopOf="@id/txtRankNumber"
             />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtPoints"
-        android:textSize="20sp"
-        android:layout_marginLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@id/txtRank"
-        app:layout_constraintTop_toTopOf="@id/txtRank"
-        app:layout_constraintStart_toStartOf="@+id/txtCourses"
-        android:text="POINTS"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtPoints"
+            android:textSize="20sp"
+            android:layout_marginLeft="15dp"
+            app:layout_constraintEnd_toEndOf="@id/txtRank"
+            app:layout_constraintTop_toTopOf="@id/txtRank"
+            app:layout_constraintStart_toStartOf="@+id/txtCourses"
+            android:text="POINTS"
+            />
 
 
         <TextView
@@ -136,11 +119,12 @@
 
             android:id="@+id/mission_recycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtPoints" />
+            app:layout_constraintTop_toBottomOf="@+id/txtPoints"
+            tools:listitem="@layout/item_mission"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

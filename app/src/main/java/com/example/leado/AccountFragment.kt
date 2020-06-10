@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.leado.models.Mission
+import kotlinx.android.synthetic.main.fragment_account.*
 
 /**
  * A simple [Fragment] subclass.
@@ -17,6 +20,21 @@ class AccountFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_account, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val missionList : List<Mission> = getMissionList()
+        mission_recycler.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.VERTICAL, false)
+        mission_recycler.adapter = MissionAdapter(missionList)
+    }
+    private fun getMissionList(): List<Mission> {
+        val missionList: MutableList<Mission> = mutableListOf()
+        missionList.add(Mission("Quick Learner", "Complete 1 Course", R.drawable.ic_launcher_background))
+        missionList.add(Mission("Master Mind", "Got 1st Place", R.drawable.ic_launcher_background))
+        missionList.add(Mission("The achiever", "Logged in everyday", R.drawable.ic_launcher_background))
+        missionList.add(Mission("Super Learner", "Complete more than 5 courses", R.drawable.ic_launcher_background))
+        return missionList
     }
 
 }

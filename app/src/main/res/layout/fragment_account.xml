@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".AccountFragment">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,113 +21,112 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/img_back"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/back"
-                android:id="@+id/img_back"/>
+                android:src="@drawable/back" />
 
         </androidx.appcompat.widget.Toolbar>
 
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_img"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:src="@mipmap/ic_launcher"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/toolBar" />
-
-            <TextView
-                android:id="@+id/txtName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/profile_img"
-                android:text="Emily petersz"
-                />
-
-            <TextView
-                android:id="@+id/txtJob"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="25sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtName"
-                android:text="Student" />
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolBar" />
 
         <TextView
-            android:textStyle="bold"
-            android:textSize="20sp"
+            android:id="@+id/txtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Emily petersz"
             android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_img" />
+
+        <TextView
+            android:id="@+id/txtJob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+        <TextView
             android:id="@+id/txtCoursesNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
             android:text="7"
-            app:layout_constraintTop_toBottomOf="@id/txtJob"
-            android:layout_marginTop="25dp"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtCourses"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtCoursesNumber"
-            android:textSize="20sp"
-            android:layout_marginLeft="10dp"
-            android:text="COURSES"
-            />
+            app:layout_constraintTop_toBottomOf="@id/txtJob" />
 
         <TextView
-            android:textStyle="bold"
+            android:id="@+id/txtCourses"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="COURSES"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCoursesNumber" />
+
+        <TextView
             android:id="@+id/txtPointsNumber"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="193,79"
-            app:layout_constraintStart_toStartOf="@id/txtCoursesNumber"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@id/txtRankNumber"
-            app:layout_constraintTop_toTopOf="@id/txtRankNumber"
-            />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtPoints"
-        android:textSize="20sp"
-        android:layout_marginLeft="15dp"
-        app:layout_constraintEnd_toEndOf="@id/txtRank"
-        app:layout_constraintTop_toTopOf="@id/txtRank"
-        app:layout_constraintStart_toStartOf="@+id/txtCourses"
-        android:text="POINTS"
-        />
+            app:layout_constraintStart_toStartOf="@id/txtCoursesNumber"
+            app:layout_constraintTop_toTopOf="@id/txtRankNumber" />
+
+        <TextView
+            android:id="@+id/txtPoints"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="POINTS"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@id/txtRank"
+            app:layout_constraintStart_toStartOf="@+id/txtCourses"
+            app:layout_constraintTop_toTopOf="@id/txtRank" />
 
 
         <TextView
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:textColor="@android:color/black"
             android:id="@+id/txtRankNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             android:layout_marginRight="40dp"
-            app:layout_constraintEnd_toEndOf="parent"
             android:text="11"
-            app:layout_constraintTop_toBottomOf="@id/txtJob"
-            android:layout_marginTop="25dp"/>
+            android:textColor="@android:color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtJob" />
+
         <TextView
+            android:id="@+id/txtRank"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/txtRank"
-            android:textSize="20sp"
-            android:text="RANK"
             android:layout_marginRight="25dp"
+            android:text="RANK"
+            android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtRankNumber"
 
@@ -135,8 +135,8 @@
         <androidx.recyclerview.widget.RecyclerView
 
             android:id="@+id/mission_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="401dp"
+            android:layout_height="355dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

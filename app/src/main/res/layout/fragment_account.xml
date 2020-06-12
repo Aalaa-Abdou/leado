@@ -6,37 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".AccountFragment">
 
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/duck_egg_blue">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolBar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <ImageView
-                android:id="@+id/img_back"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/back" />
-
-        </androidx.appcompat.widget.Toolbar>
-
+        android:layout_height="match_parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_img"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolBar" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="30dp"/>
 
         <TextView
             android:id="@+id/txtName"
@@ -45,7 +27,7 @@
             android:text="Emily petersz"
             android:textColor="@android:color/black"
             android:textSize="20sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/rubik"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/profile_img" />
@@ -55,6 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Student"
+            android:fontFamily="@font/rubik"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -128,19 +111,17 @@
             android:text="RANK"
             android:textSize="15sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtRankNumber"
-
-            />
+            app:layout_constraintTop_toBottomOf="@+id/txtRankNumber" />
 
         <androidx.recyclerview.widget.RecyclerView
-
             android:id="@+id/mission_recycler"
-            android:layout_width="401dp"
-            android:layout_height="355dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtPoints" />
+            app:layout_constraintTop_toBottomOf="@+id/txtPoints"
+            tools:listitem="@layout/item_mission"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

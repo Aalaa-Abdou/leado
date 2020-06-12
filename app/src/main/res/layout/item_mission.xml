@@ -10,20 +10,20 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/item_mission_img"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         tools:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/item_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="25dp"
         android:textColor="@android:color/black"
         android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@id/item_mission_desc"
         app:layout_constraintStart_toEndOf="@id/item_mission_img"
         app:layout_constraintTop_toTopOf="@id/item_mission_img"
         tools:text="Title name"
@@ -33,13 +33,11 @@
         android:id="@+id/item_mission_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@id/item_mission_img"
+        app:layout_constraintStart_toStartOf="@id/item_title"
         app:layout_constraintTop_toBottomOf="@id/item_title"
-        tools:text="Mission description"
-        android:layout_marginLeft="8dp" />
+        app:layout_constraintBottom_toBottomOf="@id/item_mission_img"
+        tools:text="Mission description"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

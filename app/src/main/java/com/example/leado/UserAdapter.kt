@@ -9,21 +9,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.leado.models.User
 import kotlinx.android.synthetic.main.item_user.view.*
 
-class UserAdapter (val usersList: List<User>) :
+class UserAdapter (private val usersList: List<User>) :
     RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
 
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserAdapter.UserViewHolder {
-        val userView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_user, parent, false)
-        return UserAdapter.UserViewHolder(userView)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
+        val userView = LayoutInflater.from(parent.context).inflate(R.layout.item_user, parent, false)
+        return UserViewHolder(userView)
     }
 
     override fun getItemCount(): Int {
        return usersList.size
     }
 
-    override fun onBindViewHolder(holder: UserAdapter.UserViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         holder.username.text = usersList[position].username
         holder.userPoints.text= usersList[position].userPoints.toString()
         holder.userRank.text=usersList[position].userRank

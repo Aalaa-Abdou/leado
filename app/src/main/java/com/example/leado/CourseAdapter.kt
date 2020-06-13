@@ -28,7 +28,11 @@ class CourseAdapter(private val courseList: List<Subject>):
         holder.subjectTitle.text = courseList[position].subjectName
         holder.lessonNumber.text = "Lesson ${courseList[position].lessonNumber.toString()}"
         holder.lessonDescription.text = courseList[position].lessonDescription
-        holder.startButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_journeyHomeFragment_to_searchFragment2))
+        holder.startButton.setOnClickListener {
+            val action = JourneyHomeFragmentDirections.actionJourneyHomeFragmentToSearchFragment2()
+            Navigation.findNavController(it).navigate(action)
+        }
+//        holder.startButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_journeyHomeFragment_to_searchFragment2))
     }
 
     override fun getItemCount(): Int {

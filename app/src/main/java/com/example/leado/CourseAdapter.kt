@@ -29,7 +29,7 @@ class CourseAdapter(private val courseList: List<Subject>):
         holder.lessonNumber.text = "Lesson ${courseList[position].lessonNumber.toString()}"
         holder.lessonDescription.text = courseList[position].lessonDescription
         holder.startButton.setOnClickListener {
-            val action = JourneyHomeFragmentDirections.actionJourneyHomeFragmentToSearchFragment2()
+            val action = JourneyHomeFragmentDirections.actionJourneyHomeFragmentToLessonFragment(courseList[position].lessonDescription,courseList[position].VideoID)
             Navigation.findNavController(it).navigate(action)
         }
 //        holder.startButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_journeyHomeFragment_to_searchFragment2))

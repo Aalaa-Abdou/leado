@@ -30,7 +30,21 @@
         android:name="com.example.leado.JourneyHomeFragment"
         tools:layout="@layout/fragment_journey_home" >
         <action
-            android:id="@+id/action_journeyHomeFragment_to_searchFragment2"
-            app:destination="@id/searchFragment" />
+            android:id="@+id/action_journeyHomeFragment_to_lessonFragment"
+            app:destination="@id/lessonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lessonFragment"
+        android:name="com.example.leado.LessonFragment"
+        android:label="fragment_lesson"
+        tools:layout="@layout/fragment_lesson" >
+        <argument
+            android:name="VideoDescription"
+            app:argType="string"
+            android:defaultValue="No description provided" />
+        <argument
+            android:name="VideoID"
+            app:argType="string"
+            android:defaultValue="NotAvailable" />
     </fragment>
 </navigation>

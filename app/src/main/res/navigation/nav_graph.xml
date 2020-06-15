@@ -30,21 +30,20 @@
         android:name="com.example.leado.JourneyHomeFragment"
         tools:layout="@layout/fragment_journey_home" >
         <action
-            android:id="@+id/action_journeyHomeFragment_to_lessonFragment"
-            app:destination="@id/lessonFragment" />
+            android:id="@+id/action_journeyHomeFragment_to_videoActivity"
+            app:destination="@id/videoActivity" />
     </fragment>
-    <fragment
-        android:id="@+id/lessonFragment"
-        android:name="com.example.leado.LessonFragment"
-        android:label="fragment_lesson"
-        tools:layout="@layout/fragment_lesson" >
-        <argument
-            android:name="VideoDescription"
-            app:argType="string"
-            android:defaultValue="No description provided" />
+    <activity
+        android:id="@+id/videoActivity"
+        android:name="com.example.leado.activity.VideoActivity"
+        android:label="activity_video"
+        tools:layout="@layout/activity_video" >
         <argument
             android:name="VideoID"
+            app:argType="string" />
+        <argument
+            android:name="videoDescription"
             app:argType="string"
-            android:defaultValue="NotAvailable" />
-    </fragment>
+            android:defaultValue="No intru available" />
+    </activity>
 </navigation>

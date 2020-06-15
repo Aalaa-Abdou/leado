@@ -22,7 +22,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "APIKEY", "\""+getAPIKey()+"\""
+        buildConfigField "String", "APIKEY", "\"" + getAPIKey() + "\""
     }
 
     buildTypes {
@@ -67,4 +67,8 @@ dependencies {
     //youtube library
     implementation 'com.pierfrancescosoffritti.androidyoutubeplayer:core:10.0.5'
     implementation files('libs\\YouTubeAndroidPlayerApi.jar')
+    //jason
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.2'
+    //retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
 }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.VideoActivity">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <com.google.android.youtube.player.YouTubePlayerView
+        android:id="@+id/Video_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/introduction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/Video_view"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="introduction"
+        android:textSize="20sp"
+        android:fontFamily="@font/rubik"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:id="@+id/introduction_TV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/introduction"
+        app:layout_constraintStart_toStartOf="@id/introduction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="10dp"
+        android:text="introduction"
+        android:textSize="20sp"
+        android:fontFamily="@font/rubik_light"
+        android:layout_marginVertical="4dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

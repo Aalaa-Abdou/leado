@@ -32,6 +32,9 @@
         <action
             android:id="@+id/action_journeyHomeFragment_to_videoActivity"
             app:destination="@id/videoActivity" />
+        <argument
+            android:name="ButtonName"
+            app:argType="string" />
     </fragment>
     <activity
         android:id="@+id/videoActivity"

@@ -35,10 +35,16 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         when(v){
-            personal_branding_button,
-            mind_mapping_button,
+            personal_branding_button -> {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(personal_branding_button.text.toString()))
+                bottomNavBar.visibility = View.GONE
+            }
+            mind_mapping_button -> {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(mind_mapping_button.text.toString()))
+                bottomNavBar.visibility = View.GONE
+            }
             self_awareness_button -> {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment())
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(self_awareness_button.text.toString()))
                 bottomNavBar.visibility = View.GONE
             }
         }

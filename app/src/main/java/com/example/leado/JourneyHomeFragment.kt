@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.leado.models.PlayListResponse
 import com.example.leado.models.Subject
 import com.example.leado.models.VideoResponse
 import com.example.leado.models.Videos
@@ -21,8 +23,11 @@ import retrofit2.Response
  * A simple [Fragment] subclass.
  */
 private val apiInterface: APIInterface = APIClient.getRetrofit().create(APIInterface::class.java)
+private val apiInterface0: APIInterface = APIClient.getRetrofit().create(APIInterface::class.java)
 
-class JourneyHomeFragment : Fragment() {
+class JourneyHomeFragment : Fragment(), View.OnClickListener {
+
+    val journeyHomeFragmentArgs: JourneyHomeFragmentArgs by navArgs()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -31,9 +36,28 @@ class JourneyHomeFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        lessons_recycler_view.layoutManager = LinearLayoutManager(this.context,LinearLayoutManager.HORIZONTAL,false)
 
-        apiInterface.getVideos(BuildConfig.APIKEY).enqueue(object : Callback<VideoResponse> {
+        lessons_recycler_view.layoutManager = LinearLayoutManager(this.context,LinearLayoutManager.HORIZONTAL,false)
+        callApi()
+    }
+
+    private fun callApi() {
+        apiInterface0.getPlayListID(BuildConfig.APIKEY,journeyHomeFragmentArgs.ButtonName).enqueue(object : Callback<PlayListResponse> {
+            override fun onFailure(call: Call<PlayListResponse>, t: Throwable) {
+                Log.e("on failure", t.message.toString())
+            }
+
+            override fun onResponse(call: Call<PlayListResponse>, response: Response<PlayListResponse>) {
+
+                if (response.isSuccessful) {
+                    Log.e("Success", "data loaded successfully")
+//                    val items = response.body()!!.items
+                } else {
+                    Log.e("error", "can't bind data")
+                }
+            }
+        })
+        apiInterface.getVideos(BuildConfig.APIKEY,"").enqueue(object : Callback<VideoResponse> {
             override fun onFailure(call: Call<VideoResponse>, t: Throwable) {
                 Log.e("on failure", t.message.toString())
             }
@@ -49,9 +73,19 @@ class JourneyHomeFragment : Fragment() {
             }
         })
     }
+
     private fun populateRecycler(videoList: List<Videos>){
 
         lessons_recycler_view.adapter = CourseAdapter(videoList)
+    }
+
+    override fun onClick(v: View?) {
+        when(v){
+            icon_1,subject_button_1 -> {}
+            icon_2,subject_button_2 -> {}
+            icon_3,subject_button_3 -> {}
+            icon_4,subject_button_4 -> {}
+        }
     }
 
 }

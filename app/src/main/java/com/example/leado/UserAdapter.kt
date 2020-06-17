@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.leado.models.User
+import com.example.leado.data.models.User
 import kotlinx.android.synthetic.main.item_user.view.*
 
 class UserAdapter (private val usersList: List<User>) :

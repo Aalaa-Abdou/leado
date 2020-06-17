@@ -1,4 +1,4 @@
-package com.example.leado.remote;
+package com.example.leado.data.remote;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;

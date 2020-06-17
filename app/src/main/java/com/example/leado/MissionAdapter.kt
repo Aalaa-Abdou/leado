@@ -3,11 +3,10 @@ package com.example.leado
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.leado.models.Mission
+import com.example.leado.data.models.Mission
 import kotlinx.android.synthetic.main.item_mission.view.*
 
 class MissionAdapter(val missionList : List<Mission>) :

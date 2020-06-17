@@ -5,8 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.leado.models.Mission
+import com.example.leado.data.models.Mission
 import kotlinx.android.synthetic.main.fragment_account.*
 
 /**
@@ -18,6 +19,9 @@ class AccountFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //to access the toolbar from a fragment
+        var toolbar = requireActivity().findViewById<Toolbar>(R.id.tool_bar)
+        toolbar.visibility = View.VISIBLE
         return inflater.inflate(R.layout.fragment_account, container, false)
     }
 

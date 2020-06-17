@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -23,6 +24,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
         // Inflate the layout for this fragment
         bottomNavBar = activity?.findViewById(R.id.bottom_navigation_bar)!!
         bottomNavBar.visibility = View.VISIBLE
+        var toolbar = requireActivity().findViewById<Toolbar>(R.id.tool_bar)
+        toolbar.visibility = View.GONE
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -36,15 +39,15 @@ class HomeFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v){
             personal_branding_button -> {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(personal_branding_button.text.toString()))
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment("PLuzuiqRZ4_2Eth48mg4IkuFbnxgJDAyR7"))
                 bottomNavBar.visibility = View.GONE
             }
             mind_mapping_button -> {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(mind_mapping_button.text.toString()))
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment("PLFnCv-4Mi7rhnKLCoCSfnb6rInv62w84H"))
                 bottomNavBar.visibility = View.GONE
             }
             self_awareness_button -> {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(self_awareness_button.text.toString()))
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment("PLjMDJtMdulSpZxT6ojPWdJVzhIrzaoSmo"))
                 bottomNavBar.visibility = View.GONE
             }
         }

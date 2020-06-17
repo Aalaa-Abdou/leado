@@ -1,4 +1,4 @@
-package com.example.leado.models
+package com.example.leado.data.models
 
 data class VideoResponse(val items: List<Videos>)
 data class Videos(val snippet: Snippets)

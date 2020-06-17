@@ -35,7 +35,7 @@ class JourneyHomeFragment : Fragment(), View.OnClickListener {
 
         lessons_recycler_view.layoutManager = LinearLayoutManager(this.context,LinearLayoutManager.HORIZONTAL,false)
         
-        accessingRepository(journeyHomeFragmentArgs.courseId)
+        accessingRepository(journeyHomeFragmentArgs.courseId,1)
 
 // initializing the subjects icons and titles can be done with a recycler View
         subjectList = CourseRepository.getSubject(1)
@@ -66,27 +66,27 @@ class JourneyHomeFragment : Fragment(), View.OnClickListener {
     /**
      *  to populate the lessons recyclerView
      */
-    private fun accessingRepository(courseId: Int){
-        populateRecycler(CourseRepository.getSubject(courseId))
+    private fun accessingRepository(courseId: Int,subjectId: Int){
+        populateRecycler(CourseRepository.getSubject(courseId), subjectId)
     }
 
-    private fun populateRecycler(subjectList: List<Subject>){
-        lessons_recycler_view.adapter = CourseAdapter(subjectList)
+    private fun populateRecycler(subjectList: List<Subject>, subjectId: Int){
+        lessons_recycler_view.adapter = CourseAdapter(subjectList, subjectId)
     }
 
     override fun onClick(v: View?) {
         when (v) {
             icon_1, subject_button_1 -> {
-                accessingRepository(journeyHomeFragmentArgs.courseId)
+                accessingRepository(journeyHomeFragmentArgs.courseId,1)
             }
             icon_2, subject_button_2 -> {
-                accessingRepository(journeyHomeFragmentArgs.courseId)
+                accessingRepository(journeyHomeFragmentArgs.courseId,2)
             }
             icon_3, subject_button_3 -> {
-                accessingRepository(journeyHomeFragmentArgs.courseId)
+                accessingRepository(journeyHomeFragmentArgs.courseId,3)
             }
             icon_4, subject_button_4 -> {
-                accessingRepository(journeyHomeFragmentArgs.courseId)
+                accessingRepository(journeyHomeFragmentArgs.courseId,4)
             }
         }
     }

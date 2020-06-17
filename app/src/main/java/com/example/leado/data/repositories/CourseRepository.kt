@@ -11,35 +11,35 @@ object CourseRepository {
         val lesson: MutableList<Lesson> = mutableListOf()
         when (subjectId) {
             1 -> {
-                lesson.add(Lesson(1, "", "OktnzZkmpB0","pranding_first lesson,S${subjectId}"))
-                lesson.add(Lesson(2, "", "","pranding_second lesson,S${subjectId}"))
-                lesson.add(Lesson(3, "", "","pranding_third lesson,S${subjectId}"))
-                lesson.add(Lesson(4, "", "","pranding_fourth lesson,S${subjectId}"))
-                lesson.add(Lesson(5, "", "","pranding_fifth lesson,S${subjectId}"))
+                lesson.add(Lesson(1, "", "ijXjCtCXcN4","pranding_first lesson,S${subjectId}"))
+                lesson.add(Lesson(2, "", "m9XhqkGFL5k","pranding_second lesson,S${subjectId}"))
+                lesson.add(Lesson(3, "", "lcAtXpyn6DY","pranding_third lesson,S${subjectId}"))
+                lesson.add(Lesson(4, "", "eRUd_ljNMRk","pranding_fourth lesson,S${subjectId}"))
+                lesson.add(Lesson(5, "", "Ex9IT1bq0PQ","pranding_fifth lesson,S${subjectId}"))
                 return lesson
             }
             2 -> {
-                lesson.add(Lesson(1, "", "","pranding_first lesson,S${subjectId}"))
-                lesson.add(Lesson(2, "", "","pranding_second lesson,S${subjectId}"))
-                lesson.add(Lesson(3, "", "","pranding_third lesson,S${subjectId}"))
-                lesson.add(Lesson(4, "", "","pranding_fourth lesson,S${subjectId}"))
-                lesson.add(Lesson(5, "", "","pranding_fifth lesson,S${subjectId}"))
+                lesson.add(Lesson(1, "", "ijXjCtCXcN4","pranding_first lesson,S${subjectId}"))
+                lesson.add(Lesson(2, "", "m9XhqkGFL5k","pranding_second lesson,S${subjectId}"))
+                lesson.add(Lesson(3, "", "lcAtXpyn6DY","pranding_third lesson,S${subjectId}"))
+                lesson.add(Lesson(4, "", "eRUd_ljNMRk","pranding_fourth lesson,S${subjectId}"))
+                lesson.add(Lesson(5, "", "Ex9IT1bq0PQ","pranding_fifth lesson,S${subjectId}"))
                 return lesson
             }
             3 -> {
-                lesson.add(Lesson(1, "", "","pranding_first lesson,S${subjectId}"))
-                lesson.add(Lesson(2, "", "","pranding_second lesson,S${subjectId}"))
-                lesson.add(Lesson(3, "", "","pranding_third lesson,S${subjectId}"))
-                lesson.add(Lesson(4, "", "","pranding_fourth lesson,S${subjectId}"))
-                lesson.add(Lesson(5, "", "","pranding_fifth lesson,S${subjectId}"))
+                lesson.add(Lesson(1, "", "ijXjCtCXcN4","pranding_first lesson,S${subjectId}"))
+                lesson.add(Lesson(2, "", "m9XhqkGFL5k","pranding_second lesson,S${subjectId}"))
+                lesson.add(Lesson(3, "", "lcAtXpyn6DY","pranding_third lesson,S${subjectId}"))
+                lesson.add(Lesson(4, "", "eRUd_ljNMRk","pranding_fourth lesson,S${subjectId}"))
+                lesson.add(Lesson(5, "", "Ex9IT1bq0PQ","pranding_fifth lesson,S${subjectId}"))
                 return lesson
             }
             4 -> {
-                lesson.add(Lesson(1, "", "","pranding_first lesson,S${subjectId}"))
-                lesson.add(Lesson(2, "", "","pranding_second lesson,S${subjectId}"))
-                lesson.add(Lesson(3, "", "","pranding_third lesson,S${subjectId}"))
-                lesson.add(Lesson(4, "", "","pranding_fourth lesson,S${subjectId}"))
-                lesson.add(Lesson(5, "", "","pranding_fifth lesson,S${subjectId}"))
+                lesson.add(Lesson(1, "", "ijXjCtCXcN4","pranding_first lesson,S${subjectId}"))
+                lesson.add(Lesson(2, "", "m9XhqkGFL5k","pranding_second lesson,S${subjectId}"))
+                lesson.add(Lesson(3, "", "lcAtXpyn6DY","pranding_third lesson,S${subjectId}"))
+                lesson.add(Lesson(4, "", "eRUd_ljNMRk","pranding_fourth lesson,S${subjectId}"))
+                lesson.add(Lesson(5, "", "Ex9IT1bq0PQ","pranding_fifth lesson,S${subjectId}"))
                 return lesson
             }
             else -> return emptyList()

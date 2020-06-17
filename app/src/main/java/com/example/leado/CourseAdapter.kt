@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.leado.data.models.Subject
 import kotlinx.android.synthetic.main.lesson_item.view.*
 
-class CourseAdapter(private val subjectList: List<Subject>):
+class CourseAdapter(private val subjectList: List<Subject>, private val subjectId: Int):
     RecyclerView.Adapter<CourseAdapter.CourseViewHolder>() {
 
     class CourseViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -27,13 +27,13 @@ class CourseAdapter(private val subjectList: List<Subject>):
 
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) {
-        holder.subjectTitle.text = subjectList[position].lessons[position].lessonName
+        holder.subjectTitle.text = subjectList[subjectId].lessons[position].lessonName
         holder.lessonNumber.text = "Lesson ${holder.adapterPosition + 1}"
-        holder.lessonDescription.text = subjectList[position].lessons[position].lessonDescription
+        holder.lessonDescription.text = subjectList[subjectId].lessons[position].lessonDescription
         holder.startButton.setOnClickListener {
-            val action = JourneyHomeFragmentDirections.actionJourneyHomeFragmentToVideoActivity(subjectList[position].lessons[position].lessonVideoID,subjectList[position].lessons[position].lessonDescription)
+            val action = JourneyHomeFragmentDirections.actionJourneyHomeFragmentToVideoActivity(subjectList[subjectId].lessons[position].lessonVideoID,subjectList[subjectId].lessons[position].lessonDescription)
             Navigation.findNavController(it).navigate(action)
-            SharedViewModel().sendingValue(subjectList[position])
+            SharedViewModel().sendingValue(subjectList[subjectId])
         }
     }
 

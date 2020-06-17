@@ -59,10 +59,10 @@ object CourseRepository {
         }
             2 ->{
                 subject.apply {
-                    add(Subject("support system", getIcon(), getLesson(2),2))
-                    add(Subject("core values", getIcon(), getLesson(2),2))
-                    add(Subject("strength weakness", getIcon(), getLesson(2),2))
-                    add(Subject("Goals & inspiration", getIcon(), getLesson(2),2))
+                    add(Subject("support system", getIcon(), getLesson(2),5))
+                    add(Subject("core values", getIcon(), getLesson(2),6))
+                    add(Subject("strength weakness", getIcon(), getLesson(2),7))
+                    add(Subject("Goals & inspiration", getIcon(), getLesson(2),8))
                 }
             }
             3 ->{

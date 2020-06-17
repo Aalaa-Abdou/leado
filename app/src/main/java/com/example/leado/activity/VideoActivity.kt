@@ -5,6 +5,7 @@ import android.widget.Toast
 import androidx.navigation.navArgs
 import com.example.leado.BuildConfig
 import com.example.leado.R
+import com.example.leado.SharedViewModel
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
@@ -19,6 +20,7 @@ class VideoActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener
         setContentView(R.layout.activity_video)
         Video_view.initialize(BuildConfig.APIKEY, this)
         introduction_TV.text = argument.videoDescription
+        var subjectObj = SharedViewModel().receivingValue()
     }
 
     override fun onInitializationSuccess(p0: YouTubePlayer.Provider?, p1: YouTubePlayer?, p2: Boolean) {

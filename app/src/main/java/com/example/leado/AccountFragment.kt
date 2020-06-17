@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.leado.data.models.Mission
+import com.example.leado.data.repositories.CourseRepository
 import kotlinx.android.synthetic.main.fragment_account.*
 
 /**

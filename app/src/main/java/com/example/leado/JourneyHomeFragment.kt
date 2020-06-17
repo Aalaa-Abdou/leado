@@ -71,7 +71,6 @@ class JourneyHomeFragment : Fragment(), View.OnClickListener {
     }
 
     private fun populateRecycler(subjectList: List<Subject>){
-
         lessons_recycler_view.adapter = CourseAdapter(subjectList)
     }
 

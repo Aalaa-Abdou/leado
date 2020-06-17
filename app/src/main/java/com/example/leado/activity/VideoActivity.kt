@@ -40,7 +40,7 @@ class VideoActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener
     }
 
     override fun onVideoStarted() {
-        Toast.makeText(this.baseContext,"tmam",Toast.LENGTH_LONG).show()
+        segmented_bar.incrementCompletedSegments()
     }
 
     override fun onLoaded(p0: String?) {

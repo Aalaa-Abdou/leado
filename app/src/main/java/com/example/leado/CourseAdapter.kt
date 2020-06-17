@@ -1,5 +1,6 @@
 package com.example.leado
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,10 +8,10 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
-import com.example.leado.data.models.Videos
+import com.example.leado.data.models.Subject
 import kotlinx.android.synthetic.main.lesson_item.view.*
 
-class CourseAdapter(private val videoList: List<Videos>):
+class CourseAdapter(private val subjectList: List<Subject>):
     RecyclerView.Adapter<CourseAdapter.CourseViewHolder>() {
 
     class CourseViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -24,17 +25,19 @@ class CourseAdapter(private val videoList: List<Videos>):
         return CourseViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.lesson_item, parent,false))
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) {
-        holder.subjectTitle.text = videoList[position].snippet.title
+        holder.subjectTitle.text = subjectList[position].lessons[position].lessonName
         holder.lessonNumber.text = "Lesson ${holder.adapterPosition + 1}"
-        holder.lessonDescription.text = videoList[position].snippet.description
+        holder.lessonDescription.text = subjectList[position].lessons[position].lessonDescription
         holder.startButton.setOnClickListener {
-            val action = JourneyHomeFragmentDirections.actionJourneyHomeFragmentToVideoActivity(videoList[position].snippet.resourceId.videoId,videoList[position].snippet.description)
+            val action = JourneyHomeFragmentDirections.actionJourneyHomeFragmentToVideoActivity(subjectList[position].lessons[position].lessonVideoID,subjectList[position].lessons[position].lessonDescription)
             Navigation.findNavController(it).navigate(action)
+            SharedViewModel().sendingValue(subjectList[position])
         }
     }
 
     override fun getItemCount(): Int {
-        return videoList.size
+        return subjectList.size
     }
 }

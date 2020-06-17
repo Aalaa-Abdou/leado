@@ -4,4 +4,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="self_awareness">Self awareness</string>
+    <string name="lesson_1">lesson 1</string>
+    <string name="support_system">Support System</string>
+    <string name="introduction">introduction</string>
 </resources>

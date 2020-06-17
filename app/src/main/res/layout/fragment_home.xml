@@ -98,7 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/clouds"
-            app:layout_constraintBottom_toTopOf="@+id/self_awareness_button"
+            app:layout_constraintBottom_toTopOf="@+id/course_button_3"
             app:layout_constraintEnd_toStartOf="@+id/self_awareness_IV"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -148,7 +148,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/lines"
-            app:layout_constraintBottom_toBottomOf="@+id/mind_mapping_button"
+            app:layout_constraintBottom_toBottomOf="@+id/course_button_2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/mind_icon_IV"
             app:layout_constraintTop_toTopOf="@+id/mind_icon_IV" />
@@ -158,10 +158,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/tree"
-            app:layout_constraintBottom_toTopOf="@+id/self_awareness_button"
-            app:layout_constraintEnd_toEndOf="@+id/self_awareness_button"
-            app:layout_constraintStart_toEndOf="@+id/self_awareness_button"
-            app:layout_constraintTop_toBottomOf="@+id/mind_mapping_button" />
+            app:layout_constraintBottom_toTopOf="@+id/course_button_3"
+            app:layout_constraintEnd_toEndOf="@+id/course_button_3"
+            app:layout_constraintStart_toEndOf="@+id/course_button_3"
+            app:layout_constraintTop_toBottomOf="@+id/course_button_2" />
 
         <ImageView
             android:id="@+id/self_awareness_IV"
@@ -169,12 +169,12 @@
             android:layout_height="wrap_content"
             android:src="@drawable/self_awarness_icon"
             app:layout_constraintBottom_toBottomOf="@+id/clouds"
-            app:layout_constraintEnd_toEndOf="@+id/mind_mapping_button"
-            app:layout_constraintStart_toStartOf="@+id/self_awareness_button"
+            app:layout_constraintEnd_toEndOf="@+id/course_button_2"
+            app:layout_constraintStart_toStartOf="@+id/course_button_3"
             app:layout_constraintTop_toTopOf="@+id/clouds" />
 
         <Button
-            android:id="@+id/personal_branding_button"
+            android:id="@+id/course_button_1"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -182,16 +182,16 @@
             android:fontFamily="@font/rubik"
             android:minHeight="0dp"
             android:paddingHorizontal="15dp"
-            android:text="Personal Branding"
+            tools:text="Personal Branding"
             android:textAllCaps="false"
-            app:layout_constraintBottom_toTopOf="@+id/self_awareness_button"
+            app:layout_constraintBottom_toTopOf="@+id/course_button_3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/mind_mapping_button"
+            app:layout_constraintStart_toStartOf="@id/course_button_2"
             app:layout_constraintTop_toBottomOf="@+id/card_view"
             android:layout_marginBottom="150dp"/>
 
         <Button
-            android:id="@+id/mind_mapping_button"
+            android:id="@+id/course_button_2"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -199,15 +199,15 @@
             android:fontFamily="@font/rubik"
             android:minHeight="0dp"
             android:paddingHorizontal="15dp"
-            android:text="Mind Mapping"
+            tools:text="Mind Mapping"
             android:textAllCaps="false"
-            app:layout_constraintBottom_toTopOf="@+id/self_awareness_button"
+            app:layout_constraintBottom_toTopOf="@+id/course_button_3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/personal_branding_button" />
+            app:layout_constraintTop_toBottomOf="@+id/course_button_1" />
 
         <Button
-            android:id="@+id/self_awareness_button"
+            android:id="@+id/course_button_3"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -215,11 +215,11 @@
             android:fontFamily="@font/rubik"
             android:minHeight="0dp"
             android:paddingHorizontal="15dp"
-            android:text="@string/self_awareness"
+            tools:text="@string/self_awareness"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/mind_mapping_button"
+            app:layout_constraintStart_toStartOf="@+id/course_button_2"
             android:layout_marginBottom="15dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

@@ -33,8 +33,11 @@
             android:id="@+id/action_journeyHomeFragment_to_videoActivity"
             app:destination="@id/videoActivity" />
         <argument
-            android:name="playListID"
+            android:name="CourseName"
             app:argType="string" />
+        <argument
+            android:name="courseId"
+            app:argType="integer" />
     </fragment>
     <activity
         android:id="@+id/videoActivity"

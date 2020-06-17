@@ -1,24 +1,15 @@
 package com.example.leado
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.Toolbar
-import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.leado.data.models.VideoResponse
-import com.example.leado.data.models.Videos
-import com.example.leado.data.remote.APIClient
-import com.example.leado.data.remote.APIInterface
+import com.example.leado.data.models.Subject
 import com.example.leado.data.repositories.CourseRepository
 import kotlinx.android.synthetic.main.fragment_journey_home.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 /**
  * A simple [Fragment] subclass.
@@ -28,6 +19,8 @@ class JourneyHomeFragment : Fragment(), View.OnClickListener {
 
     private val journeyHomeFragmentArgs: JourneyHomeFragmentArgs by navArgs()
 
+    private var subjectList: List<Subject> = listOf()
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_journey_home, container, false)
@@ -35,9 +28,20 @@ class JourneyHomeFragment : Fragment(), View.OnClickListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        
+        course_name_TV.text = journeyHomeFragmentArgs.CourseName
+
+        course_name_recycler_TV.text = journeyHomeFragmentArgs.CourseName
 
         lessons_recycler_view.layoutManager = LinearLayoutManager(this.context,LinearLayoutManager.HORIZONTAL,false)
-        callingApi()
+        
+        accessingRepository(journeyHomeFragmentArgs.courseId)
+
+// initializing the subjects icons and titles can be done with a recycler View
+        subjectList = CourseRepository.getSubject(1)
+
+        initSubjectsNamesAndIcons()
+        
         icon_1.setOnClickListener(this)
         icon_2.setOnClickListener(this)
         icon_3.setOnClickListener(this)
@@ -47,24 +51,44 @@ class JourneyHomeFragment : Fragment(), View.OnClickListener {
         subject_button_3.setOnClickListener(this)
         subject_button_4.setOnClickListener(this)
     }
-    private fun callingApi(){
-        CourseRepository.callApi(journeyHomeFragmentArgs.playListID).observe(viewLifecycleOwner, Observer {
-            populateRecycler(it)
-        })
+
+    private fun initSubjectsNamesAndIcons() {
+        icon_1.setImageResource(subjectList[0].subjectIcon[0].Icon)
+        icon_2.setImageResource(subjectList[1].subjectIcon[0].Icon)
+        icon_3.setImageResource(subjectList[2].subjectIcon[0].Icon)
+        icon_4.setImageResource(subjectList[3].subjectIcon[0].Icon)
+        subject_button_1.text = subjectList[0].subjectName
+        subject_button_2.text = subjectList[1].subjectName
+        subject_button_3.text = subjectList[2].subjectName
+        subject_button_4.text = subjectList[3].subjectName
     }
 
-    private fun populateRecycler(videoList: List<Videos>){
+    /**
+     *  to populate the lessons recyclerView
+     */
+    private fun accessingRepository(courseId: Int){
+        populateRecycler(CourseRepository.getSubject(courseId))
+    }
 
-        lessons_recycler_view.adapter = CourseAdapter(videoList)
+    private fun populateRecycler(subjectList: List<Subject>){
+
+        lessons_recycler_view.adapter = CourseAdapter(subjectList)
     }
 
     override fun onClick(v: View?) {
-        when(v){
-            icon_1,subject_button_1 -> {callingApi()}
-            icon_2,subject_button_2 -> {callingApi()}
-            icon_3,subject_button_3 -> {callingApi()}
-            icon_4,subject_button_4 -> {callingApi()}
+        when (v) {
+            icon_1, subject_button_1 -> {
+                accessingRepository(journeyHomeFragmentArgs.courseId)
+            }
+            icon_2, subject_button_2 -> {
+                accessingRepository(journeyHomeFragmentArgs.courseId)
+            }
+            icon_3, subject_button_3 -> {
+                accessingRepository(journeyHomeFragmentArgs.courseId)
+            }
+            icon_4, subject_button_4 -> {
+                accessingRepository(journeyHomeFragmentArgs.courseId)
+            }
         }
     }
-
 }

@@ -11,7 +11,7 @@ object CourseRepository {
         val lesson: MutableList<Lesson> = mutableListOf()
         when (subjectId) {
             1 -> {
-                lesson.add(Lesson(1, "", "","pranding_first lesson,S${subjectId}"))
+                lesson.add(Lesson(1, "", "OktnzZkmpB0","pranding_first lesson,S${subjectId}"))
                 lesson.add(Lesson(2, "", "","pranding_second lesson,S${subjectId}"))
                 lesson.add(Lesson(3, "", "","pranding_third lesson,S${subjectId}"))
                 lesson.add(Lesson(4, "", "","pranding_fourth lesson,S${subjectId}"))

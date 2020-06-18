@@ -59,18 +59,18 @@ object CourseRepository {
         }
             2 ->{
                 subject.apply {
-                    add(Subject("support system", getIcon(), getLesson(2),5))
-                    add(Subject("core values", getIcon(), getLesson(2),6))
-                    add(Subject("strength weakness", getIcon(), getLesson(2),7))
-                    add(Subject("Goals & inspiration", getIcon(), getLesson(2),8))
+                    add(Subject("support system", getIcon(), getLesson(5),5))
+                    add(Subject("core values", getIcon(), getLesson(6),6))
+                    add(Subject("strength weakness", getIcon(), getLesson(7),7))
+                    add(Subject("Goals & inspiration", getIcon(), getLesson(8),8))
                 }
             }
             3 ->{
                 subject.apply {
-                    add(Subject("support system", getIcon(), getLesson(3),3))
-                    add(Subject("core values", getIcon(), getLesson(3),3))
-                    add(Subject("strength weakness", getIcon(), getLesson(3),3))
-                    add(Subject("Goals & inspiration", getIcon(), getLesson(3),3))
+                    add(Subject("support system", getIcon(), getLesson(9),9))
+                    add(Subject("core values", getIcon(), getLesson(10),10))
+                    add(Subject("strength weakness", getIcon(), getLesson(11),11))
+                    add(Subject("Goals & inspiration", getIcon(), getLesson(12),12))
                 }
             }
         }

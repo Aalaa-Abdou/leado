@@ -12,6 +12,10 @@ def getAPIKey() {
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
+    //adding data binding
+    dataBinding {
+        enabled = true
+    }
 
     defaultConfig {
         applicationId "com.example.leado"
@@ -77,4 +81,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    //data binding
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
+
 }

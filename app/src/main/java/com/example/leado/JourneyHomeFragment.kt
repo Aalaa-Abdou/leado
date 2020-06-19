@@ -5,8 +5,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.leado.data.models.Course
 import com.example.leado.data.models.Subject
 import com.example.leado.data.repositories.CourseRepository
 import kotlinx.android.synthetic.main.fragment_journey_home.*
@@ -21,21 +24,27 @@ class JourneyHomeFragment : Fragment(), View.OnClickListener {
 
     private var subjectList: List<Subject> = listOf()
 
+    private lateinit var course: LiveData<Course>
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_journey_home, container, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        
-        course_name_TV.text = journeyHomeFragmentArgs.CourseName
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        course_name_recycler_TV.text = journeyHomeFragmentArgs.CourseName
+        val sharedViewModel = ViewModelProviders.of(requireActivity()).get(SharedViewModel::class.java)
+
+        course = sharedViewModel.getCourse()
+        
+        course_name_TV.text = course.value?.courseName ?: "courseName"
+
+        course_name_recycler_TV.text = course.value?.courseName ?: "courseName"
 
         lessons_recycler_view.layoutManager = LinearLayoutManager(this.context,LinearLayoutManager.HORIZONTAL,false)
-        
-        accessingRepository(journeyHomeFragmentArgs.courseId,1)
+
+        course.value?.courseId?.let { accessingRepository(it,1) }
 
 // initializing the subjects icons and titles can be done with a recycler View
         subjectList = CourseRepository.getSubject(1)
@@ -77,16 +86,16 @@ class JourneyHomeFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v) {
             icon_1, subject_button_1 -> {
-                accessingRepository(journeyHomeFragmentArgs.courseId,1)
+                course.value?.courseId?.let { accessingRepository(it,1) }
             }
             icon_2, subject_button_2 -> {
-                accessingRepository(journeyHomeFragmentArgs.courseId,2)
+                course.value?.courseId?.let { accessingRepository(it,2) }
             }
             icon_3, subject_button_3 -> {
-                accessingRepository(journeyHomeFragmentArgs.courseId,3)
+                course.value?.courseId?.let { accessingRepository(it,3) }
             }
             icon_4, subject_button_4 -> {
-                accessingRepository(journeyHomeFragmentArgs.courseId,4)
+                course.value?.courseId?.let { accessingRepository(it,4) }
             }
         }
     }

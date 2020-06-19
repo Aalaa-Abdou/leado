@@ -42,6 +42,70 @@ object CourseRepository {
                 lesson.add(Lesson(5, "", "Ex9IT1bq0PQ","pranding_fifth lesson,S${subjectId}"))
                 return lesson
             }
+            5 -> {
+                lesson.add(Lesson(1, "", "ijXjCtCXcN4","pranding_first lesson,S${subjectId}"))
+                lesson.add(Lesson(2, "", "m9XhqkGFL5k","pranding_second lesson,S${subjectId}"))
+                lesson.add(Lesson(3, "", "lcAtXpyn6DY","pranding_third lesson,S${subjectId}"))
+                lesson.add(Lesson(4, "", "eRUd_ljNMRk","pranding_fourth lesson,S${subjectId}"))
+                lesson.add(Lesson(5, "", "Ex9IT1bq0PQ","pranding_fifth lesson,S${subjectId}"))
+                return lesson
+            }
+            6 -> {
+                lesson.add(Lesson(1, "", "ijXjCtCXcN4","pranding_first lesson,S${subjectId}"))
+                lesson.add(Lesson(2, "", "m9XhqkGFL5k","pranding_second lesson,S${subjectId}"))
+                lesson.add(Lesson(3, "", "lcAtXpyn6DY","pranding_third lesson,S${subjectId}"))
+                lesson.add(Lesson(4, "", "eRUd_ljNMRk","pranding_fourth lesson,S${subjectId}"))
+                lesson.add(Lesson(5, "", "Ex9IT1bq0PQ","pranding_fifth lesson,S${subjectId}"))
+                return lesson
+            }
+            7 -> {
+            lesson.add(Lesson(1, "", "ijXjCtCXcN4","pranding_first lesson,S${subjectId}"))
+            lesson.add(Lesson(2, "", "m9XhqkGFL5k","pranding_second lesson,S${subjectId}"))
+            lesson.add(Lesson(3, "", "lcAtXpyn6DY","pranding_third lesson,S${subjectId}"))
+            lesson.add(Lesson(4, "", "eRUd_ljNMRk","pranding_fourth lesson,S${subjectId}"))
+            lesson.add(Lesson(5, "", "Ex9IT1bq0PQ","pranding_fifth lesson,S${subjectId}"))
+            return lesson
+        }
+            8 -> {
+            lesson.add(Lesson(1, "", "ijXjCtCXcN4","pranding_first lesson,S${subjectId}"))
+            lesson.add(Lesson(2, "", "m9XhqkGFL5k","pranding_second lesson,S${subjectId}"))
+            lesson.add(Lesson(3, "", "lcAtXpyn6DY","pranding_third lesson,S${subjectId}"))
+            lesson.add(Lesson(4, "", "eRUd_ljNMRk","pranding_fourth lesson,S${subjectId}"))
+            lesson.add(Lesson(5, "", "Ex9IT1bq0PQ","pranding_fifth lesson,S${subjectId}"))
+            return lesson
+        }
+            9 -> {
+                lesson.add(Lesson(1, "", "ijXjCtCXcN4","pranding_first lesson,S${subjectId}"))
+                lesson.add(Lesson(2, "", "m9XhqkGFL5k","pranding_second lesson,S${subjectId}"))
+                lesson.add(Lesson(3, "", "lcAtXpyn6DY","pranding_third lesson,S${subjectId}"))
+                lesson.add(Lesson(4, "", "eRUd_ljNMRk","pranding_fourth lesson,S${subjectId}"))
+                lesson.add(Lesson(5, "", "Ex9IT1bq0PQ","pranding_fifth lesson,S${subjectId}"))
+                return lesson
+            }
+            10 -> {
+                lesson.add(Lesson(1, "", "ijXjCtCXcN4","pranding_first lesson,S${subjectId}"))
+                lesson.add(Lesson(2, "", "m9XhqkGFL5k","pranding_second lesson,S${subjectId}"))
+                lesson.add(Lesson(3, "", "lcAtXpyn6DY","pranding_third lesson,S${subjectId}"))
+                lesson.add(Lesson(4, "", "eRUd_ljNMRk","pranding_fourth lesson,S${subjectId}"))
+                lesson.add(Lesson(5, "", "Ex9IT1bq0PQ","pranding_fifth lesson,S${subjectId}"))
+                return lesson
+            }
+            11 -> {
+                lesson.add(Lesson(1, "", "ijXjCtCXcN4","pranding_first lesson,S${subjectId}"))
+                lesson.add(Lesson(2, "", "m9XhqkGFL5k","pranding_second lesson,S${subjectId}"))
+                lesson.add(Lesson(3, "", "lcAtXpyn6DY","pranding_third lesson,S${subjectId}"))
+                lesson.add(Lesson(4, "", "eRUd_ljNMRk","pranding_fourth lesson,S${subjectId}"))
+                lesson.add(Lesson(5, "", "Ex9IT1bq0PQ","pranding_fifth lesson,S${subjectId}"))
+                return lesson
+            }
+            12 -> {
+                lesson.add(Lesson(1, "", "ijXjCtCXcN4","pranding_first lesson,S${subjectId}"))
+                lesson.add(Lesson(2, "", "m9XhqkGFL5k","pranding_second lesson,S${subjectId}"))
+                lesson.add(Lesson(3, "", "lcAtXpyn6DY","pranding_third lesson,S${subjectId}"))
+                lesson.add(Lesson(4, "", "eRUd_ljNMRk","pranding_fourth lesson,S${subjectId}"))
+                lesson.add(Lesson(5, "", "Ex9IT1bq0PQ","pranding_fifth lesson,S${subjectId}"))
+                return lesson
+            }
             else -> return emptyList()
         }
     }

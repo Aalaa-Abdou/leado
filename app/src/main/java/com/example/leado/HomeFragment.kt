@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.leado.data.models.Course
 import com.example.leado.data.repositories.CourseRepository
@@ -18,6 +20,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     private lateinit var bottomNavBar: View
     private var coursesList: List<Course> = listOf()
+    private var sharedViewModel: SharedViewModel? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +31,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         bottomNavBar.visibility = View.VISIBLE
         val toolbar = requireActivity().findViewById<Toolbar>(R.id.tool_bar)
         toolbar.visibility = View.GONE
+        sharedViewModel =ViewModelProviders.of(requireActivity()).get(SharedViewModel::class.java)
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -52,14 +56,17 @@ class HomeFragment : Fragment(), View.OnClickListener {
         when(v){
             course_button_1 -> {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(course_button_1.text.toString(),1))
+                sharedViewModel!!.sendCourse(coursesList[0])
                 bottomNavBar.visibility = View.GONE
             }
             course_button_2 -> {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(course_button_2.text.toString(),2))
+                sharedViewModel!!.sendCourse(coursesList[1])
                 bottomNavBar.visibility = View.GONE
             }
             course_button_3 -> {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(course_button_3.text.toString(),3))
+                sharedViewModel!!.sendCourse(coursesList[2])
                 bottomNavBar.visibility = View.GONE
             }
         }

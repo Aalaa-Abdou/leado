@@ -28,16 +28,17 @@ class CourseAdapter(private val subjectList: List<Subject>, private val subjectI
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) {
         holder.subjectTitle.text = subjectList[subjectId].lessons[position].lessonName
-        holder.lessonNumber.text = "Lesson ${holder.adapterPosition + 1}"
+        holder.lessonNumber.text = "Lesson ${subjectList[subjectId].lessons[position].index}"
         holder.lessonDescription.text = subjectList[subjectId].lessons[position].lessonDescription
         holder.startButton.setOnClickListener {
             val action = JourneyHomeFragmentDirections.actionJourneyHomeFragmentToVideoActivity(subjectList[subjectId].lessons[position].lessonVideoID,subjectList[subjectId].lessons[position].lessonDescription)
             Navigation.findNavController(it).navigate(action)
             SharedViewModel().sendingValue(subjectList[subjectId])
+            SharedViewModel().sendLesson(subjectList[subjectId].lessons[position])
         }
     }
 
     override fun getItemCount(): Int {
-        return subjectList.size
+        return subjectList[subjectId].lessons.size
     }
 }

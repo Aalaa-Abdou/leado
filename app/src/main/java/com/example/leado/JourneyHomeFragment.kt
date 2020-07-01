@@ -21,16 +21,18 @@ class JourneyHomeFragment : Fragment(), View.OnClickListener {
 
     private val journeyHomeFragmentArgs: JourneyHomeFragmentArgs by navArgs()
 
-    var subjectList: List<Subject> = listOf()
+    private var subjectList: List<Subject> = listOf()
     private lateinit var courseObject: Course
     private lateinit var stringobject: String
     private var gson = Gson()
+    private lateinit var subjectObject: String
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
         stringobject = journeyHomeFragmentArgs.Courseobject
         courseObject = gson.fromJson(stringobject,Course::class.java)
+        subjectObject = gson.toJson(courseObject.Subjects[0])
 
         return inflater.inflate(R.layout.fragment_journey_home, container, false)
     }
@@ -44,7 +46,7 @@ class JourneyHomeFragment : Fragment(), View.OnClickListener {
 
         lessons_recycler_view.layoutManager = LinearLayoutManager(this.context,LinearLayoutManager.HORIZONTAL,false)
 
-        accessingRepository(courseObject.courseId,courseObject.Subjects[0].subjectId)
+        accessingRepository(subjectObject)
 
 // initializing the subjects icons and titles can be done with a recycler View
         subjectList = courseObject.Subjects
@@ -75,27 +77,31 @@ class JourneyHomeFragment : Fragment(), View.OnClickListener {
     /**
      *  to populate the lessons recyclerView
      */
-    private fun accessingRepository(courseId: Int,subjectId: Int){
-        populateRecycler(courseId, subjectId)
+    private fun accessingRepository(subjectObject: String){
+        populateRecycler(subjectObject)
     }
 
-    private fun populateRecycler(courseId: Int, subjectId: Int){
-        lessons_recycler_view.adapter = CourseAdapter(courseId, subjectId)
+    private fun populateRecycler(subjectObject:String){
+        lessons_recycler_view.adapter = CourseAdapter(subjectObject)
     }
 
     override fun onClick(v: View?) {
         when (v) {
             icon_1, subject_button_1 -> {
-                accessingRepository(courseObject.courseId,courseObject.Subjects[0].subjectId)
+                subjectObject = gson.toJson(courseObject.Subjects[0])
+                accessingRepository(subjectObject)
             }
             icon_2, subject_button_2 -> {
-                accessingRepository(courseObject.courseId,courseObject.Subjects[1].subjectId)
+                subjectObject = gson.toJson(courseObject.Subjects[1])
+                accessingRepository(subjectObject)
             }
             icon_3, subject_button_3 -> {
-                accessingRepository(courseObject.courseId,courseObject.Subjects[2].subjectId)
+                subjectObject = gson.toJson(courseObject.Subjects[2])
+                accessingRepository(subjectObject)
             }
             icon_4, subject_button_4 -> {
-                accessingRepository(courseObject.courseId,courseObject.Subjects[3].subjectId)
+                subjectObject = gson.toJson(courseObject.Subjects[3])
+                accessingRepository(subjectObject)
             }
         }
     }

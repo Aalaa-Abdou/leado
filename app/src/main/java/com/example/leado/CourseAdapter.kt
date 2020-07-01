@@ -10,15 +10,14 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.leado.data.models.Lesson
 import com.example.leado.data.models.Subject
-import com.example.leado.data.repositories.CourseRepository
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.lesson_item.view.*
 
-class CourseAdapter(private val courseId: Int, private val subjectId: Int):
+class CourseAdapter(private val SubjectObject: String):
     RecyclerView.Adapter<CourseAdapter.CourseViewHolder>() {
-
-    private val subjectList: List<Subject> = CourseRepository.getSubject(courseId)
-    private val lessonList: List<Lesson> = CourseRepository.getLesson(subjectId)
-
+    private var gson = Gson()
+    private val subjectObject = gson.fromJson(SubjectObject, Subject::class.java)
+    private val lessonList: List<Lesson> = subjectObject.lessons
     class CourseViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val subjectTitle: TextView = itemView.subject_name_TV
         val lessonNumber: TextView = itemView.lesson_number_TV
@@ -33,10 +32,10 @@ class CourseAdapter(private val courseId: Int, private val subjectId: Int):
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: CourseViewHolder, position: Int) {
         holder.subjectTitle.text = lessonList[position].lessonName
-        holder.lessonNumber.text = "Lesson ${lessonList[position].index}"
+        holder.lessonNumber.text = "Lesson ${lessonList[position].index + 1}"
         holder.lessonDescription.text = lessonList[position].lessonDescription
         holder.startButton.setOnClickListener {
-            val action = JourneyHomeFragmentDirections.actionJourneyHomeFragmentToVideoActivity(lessonList[position].lessonVideoID,lessonList[position].lessonDescription)
+            val action = JourneyHomeFragmentDirections.actionJourneyHomeFragmentToVideoActivity(SubjectObject,lessonList[position].index)
             Navigation.findNavController(it).navigate(action)
         }
     }

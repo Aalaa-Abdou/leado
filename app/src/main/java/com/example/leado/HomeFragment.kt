@@ -1,20 +1,15 @@
 package com.example.leado
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.example.leado.data.models.Course
 import com.example.leado.data.repositories.CourseRepository
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
@@ -24,8 +19,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     private lateinit var bottomNavBar: View
     private var coursesList: List<Course> = listOf()
-//    private lateinit var model: SharedViewModel
-    var gson = Gson()
+    private var gson = Gson()
+    private lateinit var jasonString: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,17 +55,17 @@ class HomeFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v){
             course_button_1 -> {
-                var jasonString = gson.toJson(coursesList[0])
+                jasonString = gson.toJson(coursesList[0])
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(jasonString))
                 bottomNavBar.visibility = View.GONE
             }
             course_button_2 -> {
-                var jasonString = gson.toJson(coursesList[1])
+                jasonString = gson.toJson(coursesList[1])
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(jasonString))
                 bottomNavBar.visibility = View.GONE
             }
             course_button_3 -> {
-                var jasonString = gson.toJson(coursesList[2])
+                jasonString = gson.toJson(coursesList[2])
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(jasonString))
                 bottomNavBar.visibility = View.GONE
             }

@@ -73,11 +73,11 @@ class JourneyHomeFragment : Fragment(), View.OnClickListener {
      *  to populate the lessons recyclerView
      */
     private fun accessingRepository(courseId: Int,subjectId: Int){
-        populateRecycler(CourseRepository.getSubject(courseId), subjectId)
+        populateRecycler(courseId, subjectId)
     }
 
-    private fun populateRecycler(subjectList: List<Subject>, subjectId: Int){
-        lessons_recycler_view.adapter = CourseAdapter(subjectList, subjectId)
+    private fun populateRecycler(courseId: Int, subjectId: Int){
+        lessons_recycler_view.adapter = CourseAdapter(courseId, subjectId)
     }
 
     override fun onClick(v: View?) {

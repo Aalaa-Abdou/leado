@@ -34,10 +34,8 @@
             app:destination="@id/videoActivity" />
         <argument
             android:name="CourseName"
-            app:argType="string" />
-        <argument
-            android:name="courseId"
-            app:argType="integer" />
+            app:argType="string"
+            android:defaultValue="N/A" />
     </fragment>
     <activity
         android:id="@+id/videoActivity"

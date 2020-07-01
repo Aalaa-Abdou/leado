@@ -115,26 +115,26 @@ object CourseRepository {
         when(courseId){
             1 ->{
                 subject.apply {
-                add(Subject("pranding1", getIcon(), getLesson(1),1))
-                add(Subject("pranding2", getIcon(), getLesson(2),2))
-                add(Subject("oranding3", getIcon(), getLesson(3),3))
-                add(Subject("pranding4", getIcon(), getLesson(4),4))
+                add(Subject(getLesson(1), getIcon(), 1,"pranding1"))
+                add(Subject(getLesson(2), getIcon(), 2,"pranding2"))
+                add(Subject(getLesson(3), getIcon(), 3,"oranding3"))
+                add(Subject(getLesson(4), getIcon(), 4,"pranding4"))
         }
         }
             2 ->{
                 subject.apply {
-                    add(Subject("support system", getIcon(), getLesson(5),5))
-                    add(Subject("core values", getIcon(), getLesson(6),6))
-                    add(Subject("strength weakness", getIcon(), getLesson(7),7))
-                    add(Subject("Goals & inspiration", getIcon(), getLesson(8),8))
+                    add(Subject(getLesson(5), getIcon(), 5,"support system"))
+                    add(Subject(getLesson(6), getIcon(), 6,"core values"))
+                    add(Subject(getLesson(7), getIcon(), 7,"strength weakness"))
+                    add(Subject(getLesson(8), getIcon(), 8,"Goals & inspiration"))
                 }
             }
             3 ->{
                 subject.apply {
-                    add(Subject("support system", getIcon(), getLesson(9),9))
-                    add(Subject("core values", getIcon(), getLesson(10),10))
-                    add(Subject("strength weakness", getIcon(), getLesson(11),11))
-                    add(Subject("Goals & inspiration", getIcon(), getLesson(12),12))
+                    add(Subject(getLesson(9), getIcon(), 9,"support system"))
+                    add(Subject(getLesson(10), getIcon(), 10,"core values"))
+                    add(Subject(getLesson(11), getIcon(), 11,"strength weakness"))
+                    add(Subject(getLesson(12), getIcon(), 12,"Goals & inspiration"))
                 }
             }
         }
@@ -156,9 +156,9 @@ object CourseRepository {
     fun getCourse(): List<Course>{
         val course: MutableList<Course> = mutableListOf()
         course.apply {
-            add(Course("Personal-Branding", getSubject(1),4,1))
-            add(Course("Mind-Mapping", getSubject(2),4,2))
-            add(Course("Self-Awareness", getSubject(3),4,3))
+            add(Course(getSubject(1), 1,"Personal-Branding",4))
+            add(Course(getSubject(2), 2,"Mind-Mapping",4))
+            add(Course(getSubject(3),3 ,"Self-Awareness",4))
         }
         return course
     }

@@ -32,12 +32,9 @@
         <action
             android:id="@+id/action_journeyHomeFragment_to_videoActivity"
             app:destination="@id/videoActivity" />
-        <argument
-            android:name="CourseName"
-            app:argType="string" />
-        <argument
-            android:name="courseId"
-            app:argType="integer" />
+        <argument android:name="Courseobject"
+            app:argType="string"
+            android:defaultValue="N/A" />
     </fragment>
     <activity
         android:id="@+id/videoActivity"
@@ -45,11 +42,11 @@
         android:label="activity_video"
         tools:layout="@layout/activity_video" >
         <argument
-            android:name="VideoID"
-            app:argType="string" />
-        <argument
-            android:name="videoDescription"
+            android:name="SubjectObject"
             app:argType="string"
-            android:defaultValue="No intru available" />
+            android:defaultValue="N/A" />
+        <argument android:name="LessonIndex"
+            app:argType="integer"
+            android:defaultValue="0" />
     </activity>
 </navigation>

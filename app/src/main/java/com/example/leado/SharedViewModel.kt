@@ -10,7 +10,7 @@ import com.example.leado.data.models.Subject
 class SharedViewModel: ViewModel() {
 
     private var mutableLiveData: MutableLiveData<Subject> = MutableLiveData()
-    private var courseLiveData: MutableLiveData<Course> = MutableLiveData()
+    val courseLiveData: MutableLiveData<Course> = MutableLiveData()
     private var lessonLiveData: MutableLiveData<Lesson> = MutableLiveData()
 
     public fun sendingValue(subjectObj: Subject){
@@ -22,9 +22,6 @@ class SharedViewModel: ViewModel() {
 
     public fun sendCourse(courseObject: Course){
         courseLiveData.postValue(courseObject)
-    }
-    public fun getCourse(): LiveData<Course>{
-        return courseLiveData
     }
 
     public fun sendLesson(lessonObject: Lesson){

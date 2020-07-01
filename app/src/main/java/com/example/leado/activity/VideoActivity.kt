@@ -1,40 +1,43 @@
 package com.example.leado.activity
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.LiveData
 import androidx.navigation.navArgs
 import com.example.leado.BuildConfig
 import com.example.leado.R
-import com.example.leado.SharedViewModel
 import com.example.leado.data.models.Lesson
 import com.example.leado.data.models.Subject
 import com.google.android.youtube.player.YouTubeBaseActivity
 import com.google.android.youtube.player.YouTubeInitializationResult
 import com.google.android.youtube.player.YouTubePlayer
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_video.*
 
 class VideoActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener, YouTubePlayer.PlayerStateChangeListener {
 
     private val argument: VideoActivityArgs by navArgs()
-    private lateinit var subjectObj: LiveData<Subject>
-    private lateinit var lessonObj: LiveData<Lesson>
-    private var index: Int? = null
+    private var gson = Gson()
+    private lateinit var subjectObject: Subject
+    private lateinit var lessonObject: Lesson
+    private var index: Int = 0
     private var isFinal: Boolean = false
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video)
 
         Video_view.initialize(BuildConfig.APIKEY, this)
 
-        subjectObj = SharedViewModel().receivingValue()
-        lessonObj = SharedViewModel().getLesson()
-        index = lessonObj.value!!.index
+        index = argument.LessonIndex
 
-        introduction_TV.text = lessonObj.value!!.lessonDescription
+        subjectObject = gson.fromJson(argument.SubjectObject, Subject::class.java)
+        lessonObject = subjectObject.lessons[index]
+        introduction_TV.text = lessonObject.lessonDescription
+        lesson_number_TV.text = "lesson ${index + 1}"
 
-        if(index == subjectObj.value!!.lessons.size){
+        if((index + 1) == subjectObject.lessons.size){
             isFinal = true
         }
     }
@@ -42,7 +45,7 @@ class VideoActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener
     override fun onInitializationSuccess(p0: YouTubePlayer.Provider?, p1: YouTubePlayer?, p2: Boolean) {
         if (!p2) {
             p1?.setPlayerStateChangeListener(this)
-            p1?.cueVideo(lessonObj.value!!.lessonVideoID)
+            p1?.cueVideo(lessonObject.lessonVideoID)
         }
     }
 
@@ -56,8 +59,8 @@ class VideoActivity : YouTubeBaseActivity(), YouTubePlayer.OnInitializedListener
     }
 
     override fun onVideoStarted() {
-        segmented_bar.setCompletedSegments(index!!)
-        lesson_icon.setImageResource(subjectObj.value!!.subjectIcon[index!!].Icon)
+        segmented_bar.setCompletedSegments(index + 1)
+        lesson_icon.setImageResource(subjectObject.subjectIcon[index].Icon)
     }
 
     override fun onLoaded(p0: String?) {

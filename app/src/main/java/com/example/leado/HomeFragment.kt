@@ -25,8 +25,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
     private lateinit var bottomNavBar: View
     private var coursesList: List<Course> = listOf()
 //    private lateinit var model: SharedViewModel
-    var gson = Gson()
-    val mapType = object : TypeToken<Map<String, Any>>() {}.type
 
 
     override fun onCreateView(
@@ -66,20 +64,15 @@ class HomeFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v){
             course_button_1 -> {
-                var str: String = gson.toJson(CourseRepository.getIcon()[0])
-                Log.e("clicking",str)
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(str))
-//                model!!.sendCourse(coursesList[0])
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(1))
                 bottomNavBar.visibility = View.GONE
             }
             course_button_2 -> {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(course_button_2.text.toString()))
-//                model!!.sendCourse(coursesList[1])
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(2))
                 bottomNavBar.visibility = View.GONE
             }
             course_button_3 -> {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(course_button_3.text.toString()))
-//                model!!.sendCourse(coursesList[2])
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(3))
                 bottomNavBar.visibility = View.GONE
             }
         }

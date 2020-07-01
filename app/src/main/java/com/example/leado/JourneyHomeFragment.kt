@@ -9,7 +9,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.leado.data.models.Course
 import com.example.leado.data.models.Subject
-import com.example.leado.data.repositories.CourseRepository
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_journey_home.*
 
 /**
@@ -22,13 +22,16 @@ class JourneyHomeFragment : Fragment(), View.OnClickListener {
     private val journeyHomeFragmentArgs: JourneyHomeFragmentArgs by navArgs()
 
     var subjectList: List<Subject> = listOf()
-
     private lateinit var courseObject: Course
-
+    private lateinit var stringobject: String
+    private var gson = Gson()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        courseObject = CourseRepository.getCourse()[journeyHomeFragmentArgs.CourseID - 1]
+
+        stringobject = journeyHomeFragmentArgs.Courseobject
+        courseObject = gson.fromJson(stringobject,Course::class.java)
+
         return inflater.inflate(R.layout.fragment_journey_home, container, false)
     }
 

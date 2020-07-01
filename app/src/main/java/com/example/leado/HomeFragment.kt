@@ -25,7 +25,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
     private lateinit var bottomNavBar: View
     private var coursesList: List<Course> = listOf()
 //    private lateinit var model: SharedViewModel
-
+    var gson = Gson()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,10 +36,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
         bottomNavBar.visibility = View.VISIBLE
         val toolbar = requireActivity().findViewById<Toolbar>(R.id.tool_bar)
         toolbar.visibility = View.GONE
-
-//        model = activity?.run {
-//            ViewModelProviders.of(this).get(SharedViewModel::class.java)
-//        } ?: throw Exception("Invalid Activity")
 
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
@@ -64,15 +60,18 @@ class HomeFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when(v){
             course_button_1 -> {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(1))
+                var jasonString = gson.toJson(coursesList[0])
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(jasonString))
                 bottomNavBar.visibility = View.GONE
             }
             course_button_2 -> {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(2))
+                var jasonString = gson.toJson(coursesList[1])
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(jasonString))
                 bottomNavBar.visibility = View.GONE
             }
             course_button_3 -> {
-                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(3))
+                var jasonString = gson.toJson(coursesList[2])
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(jasonString))
                 bottomNavBar.visibility = View.GONE
             }
         }

@@ -7,4 +7,15 @@
     <string name="lesson_1">lesson 1</string>
     <string name="support_system">Support System</string>
     <string name="introduction">introduction</string>
+    <string name="welcome_image">welcome_image</string>
+    <string name="get_started">Get started</string>
+    <string name="log_in">log in</string>
+    <string name="UserName">User Name</string>
+    <string name="Email">Email</string>
+    <string name="Password">Password</string>
+    <string name="don_t_have_an_account_register">don\'t have an account? REGISTER</string>
+    <string name="Register">Register</string>
+    <string name="back_to_login">back to login</string>
+    <string name="upload">upload your photo</string>
+    <string name="renterPassword">renter your password</string>
 </resources>

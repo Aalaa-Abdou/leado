@@ -20,6 +20,7 @@ import java.util.*
 class LoginFragment : Fragment(),View.OnClickListener {
 
     private var profilePictureURI: Uri? = null
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +32,7 @@ class LoginFragment : Fragment(),View.OnClickListener {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        firebaseAuth = FirebaseAuth.getInstance()
         user_profile_picture.setOnClickListener(this)
         back_to_login_button.setOnClickListener(this)
         no_account_button.setOnClickListener(this)
@@ -57,7 +59,8 @@ class LoginFragment : Fragment(),View.OnClickListener {
                 registration()
             }
             login_button -> {
-                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
+                Toast.makeText(this.context,"clicked",Toast.LENGTH_SHORT).show()
+                login()
             }
         }
     }
@@ -69,8 +72,8 @@ class LoginFragment : Fragment(),View.OnClickListener {
             Toast.makeText(this.context,"please enter email and password",Toast.LENGTH_SHORT).show()
             return
         }
-
-        FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener {
+        Toast.makeText(this.context,"loading",Toast.LENGTH_LONG).show()
+        firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
         if (!it.isSuccessful) return@addOnCompleteListener
             Log.d("REGISTRATION","user created with mail and password")
             uploadImageToDataBase()
@@ -122,7 +125,17 @@ class LoginFragment : Fragment(),View.OnClickListener {
         val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
         val user = User(uid!!, editTextTextPersonName.text.toString(), profilePictureURI.toString())
         ref.setValue(user).addOnSuccessListener {
-            Toast.makeText(this.context,"Done registration!",Toast.LENGTH_LONG).show()
+            Toast.makeText(this.context,"Done registration!, please press login",Toast.LENGTH_LONG).show()
+            loginView()
+        }.addOnFailureListener {
+            Toast.makeText(this.context,it.message,Toast.LENGTH_LONG).show()
+        }
+    }
+    private fun login(){
+        firebaseAuth.signInWithEmailAndPassword(editTextTextEmailAddress.toString(),editTextTextPassword.toString()).addOnCompleteListener {
+            if (it.isSuccessful){
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
+            }
         }.addOnFailureListener {
             Toast.makeText(this.context,it.message,Toast.LENGTH_LONG).show()
         }

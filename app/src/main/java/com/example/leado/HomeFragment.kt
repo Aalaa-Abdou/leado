@@ -27,8 +27,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        bottomNavBar = activity?.findViewById(R.id.bottom_navigation_bar)!!
-        bottomNavBar.visibility = View.VISIBLE
+
         val toolbar = requireActivity().findViewById<Toolbar>(R.id.tool_bar)
         toolbar.visibility = View.GONE
 
@@ -52,22 +51,25 @@ class HomeFragment : Fragment(), View.OnClickListener {
         course_button_3.text = coursesList[2].courseName
     }
 
+    override fun onStart() {
+        super.onStart()
+        bottomNavBar = activity?.findViewById(R.id.bottom_navigation_bar)!!
+        bottomNavBar.visibility = View.VISIBLE
+    }
+
     override fun onClick(v: View?) {
         when(v){
             course_button_1 -> {
                 jasonString = gson.toJson(coursesList[0])
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(jasonString))
-                bottomNavBar.visibility = View.GONE
             }
             course_button_2 -> {
                 jasonString = gson.toJson(coursesList[1])
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(jasonString))
-                bottomNavBar.visibility = View.GONE
             }
             course_button_3 -> {
                 jasonString = gson.toJson(coursesList[2])
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToJourneyHomeFragment(jasonString))
-                bottomNavBar.visibility = View.GONE
             }
         }
     }

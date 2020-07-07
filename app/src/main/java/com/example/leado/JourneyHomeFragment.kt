@@ -20,6 +20,7 @@ class JourneyHomeFragment : Fragment(), View.OnClickListener {
 
 
     private val journeyHomeFragmentArgs: JourneyHomeFragmentArgs by navArgs()
+    private lateinit var bottomNavBar: View
 
     private var subjectList: List<Subject> = listOf()
     private lateinit var courseObject: Course
@@ -61,6 +62,12 @@ class JourneyHomeFragment : Fragment(), View.OnClickListener {
         subject_button_2.setOnClickListener(this)
         subject_button_3.setOnClickListener(this)
         subject_button_4.setOnClickListener(this)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        bottomNavBar = activity?.findViewById(R.id.bottom_navigation_bar)!!
+        bottomNavBar.visibility = View.GONE
     }
 
     private fun initSubjectsNamesAndIcons() {

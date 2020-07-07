@@ -12,7 +12,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.fragment_login.*
 import java.util.*
@@ -39,6 +41,13 @@ class LoginFragment : Fragment(),View.OnClickListener {
         login_button.setOnClickListener(this)
         upload_button.setOnClickListener(this)
         register_button.setOnClickListener(this)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (firebaseAuth.currentUser != null){
+            findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
+        }
     }
 
     override fun onClick(v: View?) {
@@ -132,7 +141,7 @@ class LoginFragment : Fragment(),View.OnClickListener {
         }
     }
     private fun login(){
-        firebaseAuth.signInWithEmailAndPassword(editTextTextEmailAddress.toString(),editTextTextPassword.toString()).addOnCompleteListener {
+        firebaseAuth.signInWithEmailAndPassword(editTextTextEmailAddress.text.toString().trim(),editTextTextPassword.text.toString().trim()).addOnCompleteListener {
             if (it.isSuccessful){
                 findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToHomeFragment())
             }
